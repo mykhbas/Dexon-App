@@ -1,0 +1,62 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model INFO {
+  line_number           String  @id
+  location              String
+  from                  String
+  to                    String
+  drawing               String
+  service               String
+  material              String
+  inservice_date        DateTime
+  pipe_size             Float
+  original_thickness    Float
+  stress                Float
+  joint_efficiency      Float
+  ca                    Float
+  design_life           Int
+  design_pressure       Float
+  operating_pressure    Float
+  design_temperature    Float
+  operating_temperature Float
+  cmls                  CML[]        // One-to-many relationship with CML
+}
+
+model CML {
+  id_cml                Int     @id @default(autoincrement()) // Primary Key for CML
+  cml_number            Int          
+  cml_description       String
+  actual_outside_diameter Float
+  design_thickness      Float
+  structural_thickness  Float
+  required_thickness    Float
+  line_number           String
+  info                  INFO   @relation(fields: [line_number], references: [line_number]) // Many CML to one INFO
+  test_points           TEST_POINT[] @relation("CML_TEST_POINT")  // One-to-many relationship with TEST_POINT
+
+}
+
+model TEST_POINT {
+  id_tp                  Int         @id @default(autoincrement())
+  tp_number              Int         
+  tp_description         String
+  note                   String
+  id_cml                 Int
+  cml                    CML         @relation("CML_TEST_POINT", fields: [id_cml], references: [id_cml], onDelete: Cascade) // Many TEST_POINT to one CML
+  thicknesses            THICKNESS[] @relation("TEST_POINT_THICKNESS")  // One-to-many relationship with THICKNESS
+}
+
+model THICKNESS {
+  id_thickness           Int         @id @default(autoincrement())
+  inspection_date        DateTime
+  actual_thickness       Float 
+  id_tp                  Int
+  test_point             TEST_POINT  @relation("TEST_POINT_THICKNESS", fields: [id_tp], references: [id_tp], onDelete: Cascade)  // Many THICKNESS to one TEST_POINT
+}

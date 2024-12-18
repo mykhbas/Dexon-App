@@ -1,0 +1,159 @@
+.mainContainer {
+    background-color: rgba(255, 0, 0, 0.1); 
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    margin-top: 50px; 
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+table {
+    border: 1px solid #ddd; 
+    width: 100%;
+    max-width: 1500px;
+    border-collapse: collapse;
+    table-layout: fixed;
+    margin: 20px auto;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+table th,
+table td {
+    padding: 12px 18px;
+    text-align: left;
+    word-wrap: break-word;
+    background-color: #fafafa;
+    font-size: 16px;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: #f44336; 
+    color: white;
+    font-weight: bold;
+    border-bottom: 2px solid #ccc;
+}
+
+table td {
+    color: #555;
+}
+
+table tr:hover {
+    background-color: #f1f1f1; 
+    cursor: pointer;
+}
+
+.addButton {
+    background-color: #f44336;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 20px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.addButton:hover {
+    background-color: #d32f2f;
+}
+.buttonBox {
+    display: flex;           
+    flex-direction: row;     
+    justify-content: flex-start;  
+    gap: 10px;               
+    flex-wrap: wrap;   
+    align-items: center;     
+}
+
+td button {
+    background-color: #c0c0c0;
+    color: #f44336;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    width: 100px;
+    height: 40px;
+}
+button {
+    background-color: #c0c0c0;
+    color: #f44336;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button:hover {
+    background-color: #b0b0b0;
+    color: #fff;
+}
+
+.addPipingFormWrapper {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .mainContainer {
+        padding: 15px;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    .addButton {
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .addPipingFormWrapper {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .mainContainer {
+        padding: 10px;
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    .addButton {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    button {
+        font-size: 12px;
+        padding: 8px;
+    }
+}
