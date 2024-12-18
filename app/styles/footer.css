@@ -1,0 +1,21 @@
+.footer {
+    background-color: #013b31;
+    color: #ffffff; 
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .footer h4 {
+    margin-bottom: 10px;
+  }
+  
+  .footer p {
+    margin: 5px 0;
+  }
+  
+  .footer .copyright {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+  
