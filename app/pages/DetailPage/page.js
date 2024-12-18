@@ -1,4 +1,5 @@
 "use client"
+import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 
@@ -18,6 +19,7 @@ import "../../styles/table.css";
 import Swal from 'sweetalert2';
 
 const DetailPage = () => {
+  const router = useRouter();
   const [infoData, setInfoData] = useState([]);
   const [cmlData, setCmlData] = useState([]);
   const [testPoints, setTestPoints] = useState([]);
@@ -104,6 +106,12 @@ const DetailPage = () => {
   return (
     <div>
       <div className="mainContainer">
+      <button
+          className="backButton"
+          onClick={() => router.push('../../pages/IndexPage')} 
+        >
+          ⬅ Back
+        </button>
         <h2>Detail Page</h2>
         <div className="section">
           <h3>Line Number: {lineNumber} </h3>
